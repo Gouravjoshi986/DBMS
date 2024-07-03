@@ -1,0 +1,60 @@
+ABSTRACTION - the method of development where the underlying complexity ie. how a particular app functions behind the scenes is hidden from the end user is called abstraction. 
+// it can be understood with example of car driving . when you drive a car you dont need to know how gear changes internally which knobs connect or which piston moves . you can use the program ie car without complex imformation of inside workings of car. this is abstraction. 
+
+DBMS also provides abstraction as you dont need to know how database is storing data which data structures are used ? is data hashed or encrypted ?(underlying complexity). 
+it provides an abstracted view of data to user. 
+
+Abstraction is applied with multiple levels ( three schema architecture )
+1. physical layer / internal layer  --> lowest level describes how data is stored , uses low level data structure,physical schema defines physical storage , it talks about how storage allocation will take place(N-ary tree),data compression encryption      
+goal - define algo which are efficient to access   
+
+2. logical layer / conceptual layer  --> conceptual design of database / describe what is stored in db and what relationships are in between differant data.  -- DBA which decides what data to keep in db uses logical level 
+goal - easy to use
+
+3. view layer / external layer --> highest level of abstraction aims to simplify user interaction with system of providing differant views to differant user 
+-Each view schema describes a db part a particular group is interested in and hides remaining part. 
+-At external level it contains several schema which are called sub schema which defines differant views -- It also provides security and prevents user from accessing certain parts of DB
+(eg. logistics view / customer support view / likes dislikes view etc)
+
+
+// INSTANCE  - collection of info at a particular instant is called a instance of db 
+// Overall design is called SCHEMA and it doesnt change frequently , it corresponds to variable decleration in program.   -- three types - physical logical and subschemas
+// The logical schema is most important and programmers mainly work with it. 
+// PHYSICAL DATA INDEPENDENCE - change in physical schema should not affect logical schema / application. 
+
+
+* DATA MODEL - way to describe design of database at logical level. 
+// describes data , data relationships , data semantics , constraints 
+It includes ER model, Relational Model, Object oriented model, object relational model
+
+* DATABASE LANGUAGES :  
+DDL - Data definition languages - to specify database schema / consistency constraints and must be checked everytime db is updated. 
+DML - Data Manipulation languages - to express and update database querries.  
+  Data manipulation involves - Reteival Insertion Deletion Updation   (query language is also a part of dml to specify statement regarding retreival)
+
+Practically both are present in sql (query language). 
+
+* how database is accessed by apps.  - apps interact with db (eg. baking  payroll executes dml ddl in host language (c++ etc)) 
+* api is provided to send dml ddl statements . 
+ 1. Open database connectivity  (ODBC)
+ 2. Java database connectivity  (JDBC)
+
+
+* DATABASE ADMINISTRATOR - a person who has control of data and programs that acces data. 
+Functions :  Schema definition , storage structure and access method , schema and physical organization modification , authorization control , routime maintainence ( periodic backup, security patches, upgrades)
+
+* DBMS Application Architecture : // two types of machines client machines on which remote db users work and server machines where db system runs on 
+1. tier 1 architectue :   * client server and DB are all present on same machine. 
+2. tier 2 architectue :   * partitioned in two components 
+     -- client machine which invoke db functionlaity at server end through query language 
+     -- server machine where db runs . apis are provided for interaction (ODBC and  JDBC)
+3. tier 3 architecture :  *     partitioned in 3 components.  
+     -- client machine is a frontend doesnt contain any direct db call  
+     -- app server is where the logic of api calls to DB are kept. 
+     -- server machine is where the db system runs 
+* t3 architecture is best for WWW applications with advantages of
+  - scalability (distributed application servers)
+  - data integrity ( app server acts as middle layer between client and db. minimize chance of corruption )
+  - security ( client directly cant access db so it is secure )
+
+ 
