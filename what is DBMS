@@ -1,0 +1,22 @@
+DATA - computer processes information in form of bits and bytes and the collection of these bits is known as data  ( can be quantitative/numerical or qualitative/descrpitive)
+INFORMATION - Processed data which indicates towards a useful meaning is called information 
+DATABASE - system/place where data is stored and can be easily accessed updated and managed.
+DBMS - it is a collection of inter related data and a set of methods to access this data. It provides two things (DB - place to store the data from where it can be retrieved saved updated)
+(MS - methods to add delete update read the data from DB)
+
+(ADVANTAGES OF DBMS) DISADVANTAGES OF FILE SYSTEM - 
+1. Data redundancy and inconsistency    -- same data stored in differant files redundantly it also makes inconsistency a issue as change in one should also change another location
+
+2. Difficulty in accessing data   - differant querries means differant programs which is hard in file systems 
+
+3. Data isolation  -- if differant formats are used to store data then isolation of data will get worse / retreiving data would be hard 
+
+4. Integrity problem - if constraints of a file system are changed then we have to modify all the program again to incorporate those which creates problem 
+
+5. Atomicity problems  - it refers to processes which must be done in one shot(transaction). file system creates problems in keeping things atomic. (if one is changed and one isnt then it creates many problems )
+
+6. Concurrent access anomalies   -- one request must be handled before other request is started this is hard for file systems 
+
+7. Security Problems  -- maintaing rights of who can access an information and who cant is hard to build in file systems 
+
+// ALL these disadvantages can be tackled in file systems but the process is very labourous and thats where dbms are better and more efficient 
