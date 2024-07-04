@@ -1,0 +1,70 @@
+ER model - it is a high level data model based on real world that consist of collection of objects called entities(real world objects like customer or student etc) and their attributes / relationships between each other. 
+
+Its graphical representation is called er diagram 
+
+// Entity - an entity is a object in real world which is distinguishable from other entities. 
+// this distinction factor can be a primary attribute/primary key. 
+// it has physical existence and it is of two types
+-- strong entity - can be distinguished from each other on their own. 
+-- weak entity - can not be distinguished on their own.  They are dependent on strong entity for existence.    ( eg   a payment will not exist without any purchase ).  
+* Represnted by a RECTANGLE 
+
+// Entity set - it is a set of entities which possess the same properties / attriutes. 
+
+// Attributes - each entity has some properties of its own which are called attributes. and an entity has values for all of these attributes.
+// for each entity there is a permitted set of values that it can have which is known as domain or value set.   
+// if a value which is not in domain is present then the DB is inconsistent. 
+* Represnted by a ELLIPSE
+
+// Types of attribute : 
+1. simple attribute - these cant be divided further (eg account number)
+* simple ellipse
+
+2. composite attribute - these can be divided futher in other attributes (eg city state etc)
+* tree like structure for its components
+
+3. single valued - can have only one value (student id)                                          
+* simple ellipse
+
+4. multi valued - can have multiple values (eg phone numbers of a person )
+// we should put a limit constraint on these type of entities. 
+* two cocentric ellipse 
+
+5. derived attribute - this type of attribute's  value is deived from other related attributes. 
+(eg age or total cost)
+* dotted ellipse 
+
+6. NULL value - when an entity doesnt have a value for an attribute . it can indicate two things. -- not applicable (eg middle name ) 
+        -- unknown  ( not filled yet, ie. if name is null then it must be filled )
+
+
+// Relationship -- this is association between two entities. 
+-- Strong relationship is between two independent entities 
+-- weak relationship is between one weak entity and one strong entity on which the weak entity depends 
+* represented as diamond 
+// weak relation can be represented by two concentric diamond 
+
+// degree of relationship - it is defined as number of entities participating in a relation 
+1. unary - only one entity participates ( employee - manages - employee) - only one entity employee is performing task of managing itself. 
+2. binary - two entity are having a relationship ( student takes course , child eat biscuit)
+// most relationship are binary 
+3. ternary - three entities participating altogether. (employee works on a job, employee works in a branch , job has a branch ). 
+
+// RELATIONSHIP CONSTRAINTS :  
+1. MAPPING CARDINALITY / CARDINALITY RATIO - number of entities to which another entity can be associated via a relationship. 
+ -- one to one  : A can only be associated with B and B can only be associated with A ( eg citizen - Aadhar card)
+ -- one to many : A can be associated with N entities in B. but all those entity can be associated with only A. (eg. you have 5 cars but those 5 cars are only associated with you)
+ -- many to one : A can be associated with only B but B can be associated with many entity in A. (eg A course can be taken by only one professor but one professor can teach many courses)
+ -- many to many : A can take many entity in B and B can have many entity in A. ( A student can join many courses and a course can have many students )
+
+2. Participation constraints:  - also known as minimum cardinality constraint 
+it is of two types  -- Total 
+                    -- partital 
+* partital - not all entities are involved in a relationship instance 
+* total - all entity must participate in a relationship instance without participation it can not exist. 
+eg.    customer borrows Loan      -- customer - partial participation ( it can have a loan or not)
+                                  -- Loan - toal participation ( loan cant exist without customer)
+* weak entities must have a total participation.  
+* strong entity can have it or not have it ( it depends )
+
+-- Total participation is shown by double lines . eg:   customer ---- borrows ==== Loan
