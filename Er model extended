@@ -1,0 +1,27 @@
+// For more complex and optimized model we use some extended features 
+1. specialisation : 
+ it is when we split an entity set into subgroups based on their functionalities and features. 
+ ( eg (person) is a (customer),(employee)). here person is broken into customer and employee. 
+
+* the main entity is called superclass and the subgroup is called subclass. 
+// it is a top down approach and is represented by a triangle component. relation word : (is-a)
+// used to refine entities in db and show distinctive features of sub groups
+
+2. Generalisation
+_ it is reverse of specialisation , when two entities have many common attributes we create a new super class which is a generalised entity set. 
+// it is bottom up approach and also represented by a triangle 
+// makes db refined and common attributes are not repeated. 
+
+3. Attribute inheritance - attributes of a higher class entity are inherited by a lower class entity.   (followed in both specialisation and generaisation)
+
+4. Participation inheritance -  if parent entity participates than child also participates .
+
+5. Aggregation :  it is used when we have to show relationship among relationship. 
+  in this method we aggregate a relationship and consider it as a seperate entity set.(done by abstraction) 
+  -then we make a relationship with this new aggregated entity set. 
+  _ this reduces redundancy as instead of connecting every entity in a relationship to another entity via a relationship we connect a whole entity set to a new entity. 
+    eg.          student ----school ----course
+                  |            |         |               --> this creates redundancy 
+                  |________guardian______|         
+
+                [student----school----course]---guardian    -->this doesnt create redundancy
