@@ -1,0 +1,51 @@
+// The steps which we have to follow to construct an er diagram are:
+1. Requirement engineering (ask what are the requirements of that particular database / what all is needed to be stored inside that db etc)
+2. identify entity sets and type(strong / weak)
+3. identify attributes and types(simple / composite / single valued / multivalued / derived)
+4. identify relationship and constraints(mapping cardinality (1:1 , 1:N, N:1, N:N), participation constraint (total , partial) ,degree of realtionship (unary/binary/ternary))
+
+// with all these we can easily create an er diagram. 
+
+
+// ER diagram of banking system
+
+1. Requirements: 
+ - bank - branches
+ - bank - customers
+ - bank - employees
+ - customer - account
+ - customer - loan
+ - customer - banker
+ - account - saving account and current account
+ - loan - payment scheduled     
+
+2. Entity sets
+ - branch 
+ - customer 
+ - employee
+ - saving account        --|_ generated entity account
+ - current account       --|
+ - loan 
+ - payment (loan - weak entity) 
+
+
+3. Attributes
+ - branch - name,city,assets,liabilities
+ - customer - customerId,name,address,contactNo(multivalued),DateofBirth,Age(derived)
+ - employee - employeeId(derived),name,contactNo,dependentName(multivalued),yearsOfService,startDate
+ - saving account - accNo,balance,interestRate,dailyWithdrawlLimit
+ - current account - accNo,balance,perTransactionCharge,overdraft amount
+ -   Generated Entity - Account - accNo,balance
+ - loan - loan number , amount 
+ - payment(weak entity) - payment no , date,amount
+
+4. Relationships 
+ - customer borrows loans (M:N)
+ - loan organized by branch (N:1)
+ - loan loan payment payments (1:N)
+ - customer deposits account (M:N)
+ - customer banker employee (N:1)
+ - employee manage by employee (N:1)
+
+
+    
