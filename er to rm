@@ -1,0 +1,25 @@
+// both er model and rm are logical representation of DB. so Er model can be converted into relational model. 
+
+ER Diagram Notations:
+1. Strong Entity: Becomes an individual table. Attribute becomes columns of table.
+                  Entitys PK is used as tables PK.
+                  Foreign key are added to establish relations with other table.
+
+2. Weak Entity: A table with all attributes is created. The Pk of strong entity will be made a foreign key of this weak entity. PK of this table will be a composite key ( Fk + partial discriminator key).
+
+3. Single variable attribute: a column is created for an attribute. 
+4. Composite attribute: a seperate attribute is created to break it in columns. 
+(address - street,city,state    is broken into address-street,address-city,address-state)
+5. Multivalued attributes - for these variables we create a new table and assign the primary key of the original relation as its foreign key. 
+for eg TABLE EMPLOYEE (PK - emp_id)  , multivalued variable - helper_name (table-FK-emp_id,PK-FK+helper_name)
+6. Derived Attributes - not included in table of relation as they can be derived 
+
+7. Generalisation - two methods to tackle generalisation, 
+Method 1  - we can create new tables for all the generalised subSchemes with The PK of original generalized value as the FK or this new Tables.    (eg:  Table-Vehicle PK-Id ---> Table-Ford FK-Id, Table-Tata FK-Id)
+
+Method 2  - we can remove the generalised table form the DB as this is redundant in our data base (That is also a limitation as if there are values in generalised table which are not in the sub tables that we created we will lose those values ). 
+
+8. Aggregation - We will create a table with name same as the relation between the two entities(main entity and the main aggregated entity). 
+// This table will have attributes equal to PK of all entities that have taken part in that relationship. 
+
+* To represent unary relationship in DB we assign a FK to the table which will Hold the values same as that of PK of the special tuple.(for eg, table of employee with PK-emp_id will have a FK as emp_manager_id   with values = PK(emp_id) of the manager tuple in this employee table). 
