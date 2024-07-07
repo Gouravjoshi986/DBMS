@@ -1,0 +1,23 @@
+//  transaction is the unit of work done against the DB in a logical sequence. 
+* It is a logical unit of work that contains set of sql commnads ,they either get completed succesfully or all the chages that take place are rolled back.
+
+// ACID properties 
+1. Atomicity - either all operations of transaction are reflected on the DB or none are. 
+2. Consistency - All integrity constraint must be maintained. (Domain const., Entity const., referential const., Key const.) DB must be consistent after transaction happens. 
+3. Isolation - when multiple transaction are happening in a system. they should not interfere with each other. (as if T1 should not know T2 is happening)
+4. Durability - If a transaction happens ,the changes it made to database must persist. even if system failure happens. 
+
+* Transaction States :        
+  (Read write operation)          (permanent store)
+    |---->partially committed state----->Committed State------->Terminated State
+    |               |                                               |
+Active state        | (failure)                                     |
+    |               |                                               |
+    |--->   Failed State ----->Rollback---->Aborted State------------
+    (failure)
+
+1. Active state - first state where Read or write operation happens and if successful it moves to partially committed state and if failed it moves to failed state. 
+2. Partially committed state - where state moves after completion and permanent store happens and state moves to committed state
+3. Aborted State - when rollback happens from failed state it moves to aborted state
+4. Terminated state - a transaction is said to be completed if it is committed or aborted. 
+
