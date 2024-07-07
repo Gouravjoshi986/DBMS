@@ -1,0 +1,28 @@
+// Recovery mechanism component of DBMS supports atomicity and durability. 
+// Shadow-copy scheme - > 
+-it is based on making copies of DB.
+Assumption - only one transaction is taking place at a time. 
+- a pointer called db-pointer is pointed onto a copy of the current database and when a transaction starts this dp-pointer is not touched and if the transaction fails, then this db-pointer is used to restore the DB. if it completes successfully then the db-pointer is moved to the new copy of database.   
+// on completion all pages of new copy are written on the disk. 
+db updates and pointer updates. 
+T is commintted when db pointer is written on disk. 
+
+* with this scheme ATOMICITY is implemented as if t is completed then new copy is updated. and if t is aborted then the new copy is deleted and old copy is used which doesnt affect any values in DB. 
+
+* durability is implemented as if the system failure occurs before new pointer is updated then the pointer will still point to old db copy so data will be safe. if system failure occurs after db-pointer is updated then the new-copy will be used. 
+
+The implementation is dependent on db pointer being atomic and disk system provide atomic updates to entire block. so we make sure it lies in a single sector by pointing db pointer at beginning of block. 
+* Inefficient as copies of entire Db is created for every transactions.
+
+// LOG-BASED RECOVERY APPROACH ; 
+    the log is a sequence of records where every transaction is recorded before the actual transaction is applied in the database.  we store this log in a Stable Storage (which is resistant to power failures and hardware failure)
+
+    * Stable Storage is a classification of computer data technology that guarantees atomicity for any given operation and allows software to be written that is robust. 
+
+    * Deferred-DB modification - ensuring atomicity by recording all db modification in log but deferring their write to their DB until transaction is fully completed.    
+    // the log is used to write this informations and if transaction is aborted or completed then this information in log is ignored. // if failure while writing the logs occurs then redo occurs. 
+
+    * Immediate DB modification - db modification while T is still active. these are called uncommitted modification. in case of failure system uses old value field log record to restore modified value.
+    / update only take place after log are recorded in stable storage. 
+    
+
