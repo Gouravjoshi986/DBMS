@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Normalisation is used to remove redundancy from DB and optimize it 
 // Functional Dependency - > it is a relation between one attribute(generally PK) with another attribute in a relation. 
 Here A->B   A= determinant
@@ -37,3 +38,44 @@ Anomalies - > 1. Insertion Anomaly = when you want to insert something in the DB
 
 
 
+=======
+// Normalisation is used to remove redundancy from DB and optimize it 
+// Functional Dependency - > it is a relation between one attribute(generally PK) with another attribute in a relation. 
+Here A->B   A= determinant
+            B= dependent
+
+Types of FD - 
+1. Trivial FD = if A->B holds and B is a subset of A then it is trivial FD  
+2. NON Trivial FD = if A->B holds but b is not a subest of A 
+
+* Rules of FD (armstrong's axioms)
+1. Reflexive = it means if B is a subset of A then A->B holds 
+2. Augementation - it means if A->B holds then AX->BX also holds
+3. Transitivity - ite means if A->B and B->C then A->C also holds 
+
+// If we have redundancy in database then anomalies arise 
+Anomalies - > 1. Insertion Anomaly = when you want to insert something in the DB but you cant do so because you dont have values of every attribute so you either insert NULL and change later or dont insert at all. This situation is called insertion anomaly. 
+
+2. Deletion anomaly - if there is redundant data and you deleted one then there could be loss of important data or there could be a case where the unwanted value is not deleted from everywhere. 
+
+3. Updation anomaly - here we would need to update every location of redundancy so we cant update only one position. 
+
+* due to anomalies size of DB increases and performance degrades. 
+// Normalisation is used to reduce redundancy and it also divides composite attr. into individual or larger tables into smaller and link them using relations.
+* Normal form is used for Normalisation
+
+== TYPES OF NORMAL FORM 
+1. 1NF - > the cells of tables must have atomic values only. 
+           There should be no multivalue attr.
+2. 2NF - > it must be 1NF 
+           There should not be any Partial dependency. (ie all non primary key attr. must be fully dependent on primary key and not just part of it)
+3. 3NF - > it must be 2NF
+           No Transitivity dependency should exist. (No non pk attr should find other non pk attr)
+4. BCNF - >(boyce codd normal form ) = it must be 3NF, and you must not be able to find any PK 
+            attr using non pk attr or pk attr
+            
+// greater database optimization/speed/low redundancy/data consistency
+
+
+
+>>>>>>> 59f348cf5a70d01497bf94f27940536e75e64fe1

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Indexing is used to optimize the performance of database in minimizing number of disk access required when query is processed
     // Index is a data structure which is used to locate and access value in database quickly. 
     speed up operation is used in select and where clause.
@@ -22,4 +23,30 @@ it needs less space as it only stores the base block address value pair and when
 // Secondary index (non clustering index) - unsorted / every tuple is used to create and store search value pair / dense indexing/
 
 adv = faster access , less io 
+=======
+Indexing is used to optimize the performance of database in minimizing number of disk access required when query is processed
+    // Index is a data structure which is used to locate and access value in database quickly. 
+    speed up operation is used in select and where clause.
+    . It contains two parts: Search Key and Reference value
+- search key - contains a copy of key of table (can be Pk or non primary key in sorted order). 
+- reference value - contains reference/address to the location of base block where data of corresponding key is stored. 
+/ Indexing is optional but it increases data access speed. but it is not primary means of accessing data,it is secondary mean. 
+- index file is always sorted. -> to facilitate binary search in the ds. 
+
+// Primary Index (clustering index) - > if the data file containing all data has its search key also in a sequential order then it is called a primary index. (primary index is a index whose search key also defines the sequential order of file). 
+
+// all files are ordered on some search key / pk or non pk 
+1. Dense index - contains a record for every search key value pair in data file. 
+    It points to the actual record on the disk and needs more space. 
+2. Sparse index - when only some search key value pair values are stored in index. 
+it needs less space as it only stores the base block address value pair and when needed we do some processing to fetch items. 
+
+// Based on key attribute - > PK used as search key / sorted based on PK / sparse index foramtion
+// based on non key attribute - > sorted based on nonPk attr. / dense index as every unique non key attr is used / 
+// Multi level index - when indexing is done in two or more levels (when binary search of one levels takes too much time)
+
+// Secondary index (non clustering index) - unsorted / every tuple is used to create and store search value pair / dense indexing/
+
+adv = faster access , less io 
+>>>>>>> 59f348cf5a70d01497bf94f27940536e75e64fe1
 dis = extra space / decrease performance in insert delete update
